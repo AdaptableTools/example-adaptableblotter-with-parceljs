@@ -1,0 +1,29 @@
+{
+  "name": "example-adaptableblotter-with-parceljs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demo of the AdaptableBlotter - using parceljs as build tool for quick setup",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdaptableTools/example-adaptableblotter-with-parceljs.git"
+  },
+  "author": "AdaptableBlotter",
+  "bugs": {
+    "url": "https://github.com/AdaptableTools/example-adaptableblotter-with-parceljs/issues"
+  },
+  "homepage": "https://github.com/AdaptableTools/example-adaptableblotter-with-parceljs#readme",
+  "dependencies": {
+    "@adaptabletools/adaptableblotter": "^5.2.1",
+    "ag-grid-community": "21",
+    "ag-grid-enterprise": "21",
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.2"
+  }
+}
