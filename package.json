@@ -5,6 +5,7 @@
   "description": "Demo of the AdaptableBlotter - using parceljs as build tool for quick setup",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npm config set @adaptabletools:registry https://registry.adaptabletools.com",
     "dev": "parcel index.html",
     "build": "parcel build index.html"
   },
