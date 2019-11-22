@@ -5,6 +5,7 @@
   "description": "Demo of the AdaptableBlotter - using parceljs as build tool for quick setup",
   "main": "index.js",
   "scripts": {
+    "preinstall": "[ $NETLIFY_BUILD = 'true'] && echo '\n@adaptabletools:registry=https://registry.adaptabletools.com\n//registry.adaptabletools.com/:_authToken=${NPM_TOKEN}' >> .npmrc",
     "dev": "parcel index.html",
     "build": "parcel build index.html"
   },
