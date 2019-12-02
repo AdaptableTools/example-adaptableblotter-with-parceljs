@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AdaptableBlotter Demo</title>
+    <link
+      href="./node_modules/@adaptabletools/adaptableblotter/index.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./node_modules/@adaptabletools/adaptableblotter/themes/dark.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./node_modules/ag-grid-community/dist/styles/ag-grid.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./node_modules/ag-grid-community/dist/styles/ag-theme-balham.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./node_modules/ag-grid-community/dist/styles/ag-theme-balham-dark.css"
+      rel="stylesheet"
+    />
+    <link href="./index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="adaptableBlotter"></div>
+
+    <div id="grid" className="ag-theme-balham"></div>
+
+    <script src="./minified/ab.js"></script>
+    <script src="./orders.js"></script>
+    <script src="./with-minified.js"></script>
+  </body>
+</html>
