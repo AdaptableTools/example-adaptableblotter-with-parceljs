@@ -45,3 +45,5 @@ to launch a webserver that serves the generated `dist` folder - now go to [local
 This repo also shows how you can minify the AdaptableBlotter - for this, run `npm run minify` - this runs parceljs on the `ab.js` file found in the root folder. The script generates `minified/ab.js` - a minified version of the AdaptableBlotter, which contains all the dependencies the blotter needs to work properly.
 
 Then, in order to use the minified version, you can run `npm run serve-minified` - which simply runs a webserver in the current folder - now you can open [localhost:1234/with-minified](http://localhost:1234/with-minified.html)
+
+In order to modify the demo, you can edit the [with-minified.html](./with-minified.html) file, which uses the minified version of the AdaptableBlotter
