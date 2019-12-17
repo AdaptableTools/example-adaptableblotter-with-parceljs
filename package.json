@@ -8,7 +8,7 @@
     "preinstall": "node if-netlify-build.js",
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "minify": "parcel build ab.js -d minified",
+    "minify": "webpack",
     "serve-minified": "open http://localhost:1234/with-minified && npx serve . -p 1234 "
   },
   "repository": {
@@ -21,12 +21,14 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptableblotter-with-parceljs#readme",
   "dependencies": {
-    "@adaptabletools/adaptableblotter": "^5.2.2-canary.0",
+    "@adaptabletools/adaptableblotter": "5.2.2-canary.12",
     "ag-grid-community": "21",
     "ag-grid-enterprise": "21",
     "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
   }
 }

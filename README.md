@@ -42,7 +42,7 @@ to launch a webserver that serves the generated `dist` folder - now go to [local
 
 ## Running with minified script
 
-This repo also shows how you can minify the AdaptableBlotter - for this, run `npm run minify` - this runs parceljs on the `ab.js` file found in the root folder. The script generates `minified/ab.js` - a minified version of the AdaptableBlotter, which contains all the dependencies the blotter needs to work properly.
+This repo also shows how you can minify the AdaptableBlotter - for this, run `npm run minify` - this runs webpack on the `ab.js` file found in the root folder. The script generates `minified/ab.js` - a minified version of the AdaptableBlotter, which contains all the dependencies the blotter needs to work properly, excluding the ag-grid-community and enterprise packages (the exclude is found in `webpack.config.js`, on the `externals` property).
 
 Then, in order to use the minified version, you can run `npm run serve-minified` - which simply runs a webserver in the current folder - now you can open [localhost:1234/with-minified](http://localhost:1234/with-minified.html)
 
