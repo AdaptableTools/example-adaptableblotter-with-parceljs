@@ -21,9 +21,8 @@
   },
   "homepage": "https://github.com/AdaptableTools/example-adaptableblotter-with-parceljs#readme",
   "dependencies": {
-    "@adaptabletools/adaptableblotter": "5.2.2-canary.12",
-    "ag-grid-community": "21",
-    "ag-grid-enterprise": "21",
+    "@adaptabletools/adaptable": "^6.0.0-canary.1",
+    "@ag-grid-community/all-modules": "^22.1.1",
     "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {
