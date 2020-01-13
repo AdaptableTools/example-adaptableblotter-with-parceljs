@@ -1,13 +1,13 @@
-import AdaptableBlotter from "@adaptabletools/adaptableblotter/agGrid";
+import Adaptable from "@adaptabletools/adaptable/agGrid";
 
-import "@adaptabletools/adaptableblotter/index.css";
-import "@adaptabletools/adaptableblotter/themes/dark.css";
+import "@adaptabletools/adaptable/index.css";
+import "@adaptabletools/adaptable/themes/dark.css";
 
-import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-balham.css";
-import "ag-grid-community/dist/styles/ag-theme-balham-dark.css";
+import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
+import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
+import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
 
-import { AdaptableBlotterOptions } from "@adaptabletools/adaptableblotter/types";
+import { AdaptableOptions } from "@adaptabletools/adaptable/types";
 
 const columnDefs = [
   { field: "OrderId", type: "abColDefNumber" },
@@ -31,10 +31,10 @@ const columnDefs = [
   }
 ];
 
-const blotterOptions: AdaptableBlotterOptions = {
+const blotterOptions: AdaptableOptions = {
   primaryKey: "OrderId",
   userName: "Demo User",
-  blotterId: "Simple Demo",
+  adaptableId: "Simple Demo",
 
   vendorGrid: {
     columnDefs,
@@ -51,10 +51,10 @@ const blotterOptions: AdaptableBlotterOptions = {
   predefinedConfig: {}
 };
 
-const blotter = new AdaptableBlotter(blotterOptions);
+const api = Adaptable.init(blotterOptions);
 
 // we simulate server loading - so when the blotter is ready
-blotter.api.eventApi.on("BlotterReady", () => {
+api.eventApi.on("AdaptableReady", () => {
   // we load the json orders
   import("./orders.json")
     .then(data => data.default)
@@ -62,7 +62,7 @@ blotter.api.eventApi.on("BlotterReady", () => {
       // add an extra timeout
       setTimeout(() => {
         // and then set the correct row data
-        blotter.gridOptions.api!.setRowData(data);
+        blotterOptions.vendorGrid.api!.setRowData(data);
       }, 500);
     });
 });
