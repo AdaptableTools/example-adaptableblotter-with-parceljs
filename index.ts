@@ -1,34 +1,21 @@
-import Adaptable from "@adaptabletools/adaptable/agGrid";
+import { AllEnterpriseModules } from "@ag-grid-enterprise/all-modules";
 
+import Adaptable from "@adaptabletools/adaptable/agGrid";
 import "@adaptabletools/adaptable/index.css";
-import "@adaptabletools/adaptable/themes/dark.css";
 
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
-import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
 
 import charts from "@adaptabletools/adaptable-plugin-charts";
 import finance from "@adaptabletools/adaptable-plugin-finance";
 
 import { AdaptableOptions } from "@adaptabletools/adaptable/types";
 
-import { AllEnterpriseModules } from "@ag-grid-enterprise/all-modules";
-
 const columnDefs = [
   { field: "OrderId", type: "abColDefNumber" },
-  {
-    field: "CompanyName",
-
-    type: "abColDefString"
-  },
-  {
-    field: "ContactName",
-    type: "abColDefString"
-  },
-  {
-    field: "Employee",
-    type: "abColDefString"
-  },
+  { field: "CompanyName", type: "abColDefString" },
+  { field: "ContactName", type: "abColDefString" },
+  { field: "Employee", type: "abColDefString" },
   {
     field: "InvoicedCost",
     type: "abColDefNumber",
@@ -36,11 +23,12 @@ const columnDefs = [
   }
 ];
 
-const blotterOptions: AdaptableOptions = {
+const adaptableOptions: AdaptableOptions = {
   primaryKey: "OrderId",
   userName: "Demo User",
   adaptableId: "Simple Demo",
 
+  // call the plugins functions and pass them to the plugins array in the AdaptableOptions object
   plugins: [charts(), finance()],
 
   vendorGrid: {
@@ -59,9 +47,7 @@ const blotterOptions: AdaptableOptions = {
   },
   predefinedConfig: {}
 };
-
-const api = Adaptable.init(blotterOptions);
-
+const api = Adaptable.init(adaptableOptions);
 // we simulate server loading - so when the blotter is ready
 api.eventApi.on("AdaptableReady", () => {
   // we load the json orders
@@ -71,7 +57,7 @@ api.eventApi.on("AdaptableReady", () => {
       // add an extra timeout
       setTimeout(() => {
         // and then set the correct row data
-        blotterOptions.vendorGrid.api!.setRowData(data);
+        adaptableOptions.vendorGrid.api!.setRowData(data);
       }, 500);
     });
 });
