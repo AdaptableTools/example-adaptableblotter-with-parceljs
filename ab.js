@@ -1,3 +1,3 @@
-import AdaptableBlotter from "@adaptabletools/adaptableblotter/agGrid";
+import Adaptable from "@adaptabletools/adaptable/agGrid";
 
-window.AdaptableBlotter = AdaptableBlotter;
+window.Adaptable = Adaptable;

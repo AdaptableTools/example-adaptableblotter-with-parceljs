@@ -7,7 +7,12 @@ import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
 
+import charts from "@adaptabletools/adaptable-plugin-charts";
+import finance from "@adaptabletools/adaptable-plugin-finance";
+
 import { AdaptableOptions } from "@adaptabletools/adaptable/types";
+
+import { AllEnterpriseModules } from "@ag-grid-enterprise/all-modules";
 
 const columnDefs = [
   { field: "OrderId", type: "abColDefNumber" },
@@ -36,7 +41,11 @@ const blotterOptions: AdaptableOptions = {
   userName: "Demo User",
   adaptableId: "Simple Demo",
 
+  plugins: [charts(), finance()],
+
   vendorGrid: {
+    modules: AllEnterpriseModules,
+    enableRangeSelection: true,
     columnDefs,
     columnTypes: {
       abColDefNumber: {},

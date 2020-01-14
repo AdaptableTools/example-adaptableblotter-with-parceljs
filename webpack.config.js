@@ -8,8 +8,8 @@ module.exports = {
   },
   externals: [
     {
-      "ag-grid-community": "agGrid",
-      "ag-grid-enterprise": "agGrid"
+      "@ag-grid-community/all-modules": "agGrid",
+      "@ag-grid-enterprise/all-modules": "agGrid"
     }
   ]
 };
