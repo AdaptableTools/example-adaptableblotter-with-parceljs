@@ -20,7 +20,7 @@ $ npm run dev
 
 NOTE: The first time you run this, it takes longer as parcel generates some cache, etc - subsequent runs will be a lot faster
 
-Now navigate to [localhost:1234](http://localhost:1234) in order the see the AdaptableBlotter in action.
+Now navigate to [localhost:1234](http://localhost:1234) in order the see the AdapTable in action.
 
 Any change you make in your sources will trigger a browser reload, since parceljs comes with built-in hot-reloading in order to keep you productive.
 

@@ -1,4 +1,4 @@
-const AdaptableBlotter = window.AdaptableBlotter;
+const Adaptable = window.Adaptable;
 
 const columnDefs = [
   { field: "OrderId", type: "abColDefNumber" },
@@ -22,10 +22,10 @@ const columnDefs = [
   }
 ];
 
-const blotterOptions = {
+const adaptableOptions = {
   primaryKey: "OrderId",
   userName: "Demo User",
-  blotterId: "Simple Demo",
+  adaptableId: "Simple Demo",
 
   vendorGrid: {
     columnDefs,
@@ -42,10 +42,9 @@ const blotterOptions = {
   predefinedConfig: {}
 };
 
-const blotter = new AdaptableBlotter(blotterOptions);
-
-// we simulate server loading - so when the blotter is ready
-blotter.api.eventApi.on("BlotterReady", () => {
+const api = Adaptable.init(adaptableOptions);
+// we simulate server loading - on AdaptableReady event
+api.eventApi.on("AdaptableReady", () => {
   // we load the json orders
   // import("./orders.json")
   new Promise(resolve => {
@@ -57,7 +56,7 @@ blotter.api.eventApi.on("BlotterReady", () => {
       // add an extra timeout
       setTimeout(() => {
         // and then set the correct row data
-        blotter.gridOptions.api.setRowData(data);
+        adaptableOptions.vendorGrid.api.setRowData(data);
       }, 500);
     });
 });

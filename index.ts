@@ -48,7 +48,7 @@ const adaptableOptions: AdaptableOptions = {
   predefinedConfig: {}
 };
 const api = Adaptable.init(adaptableOptions);
-// we simulate server loading - so when the blotter is ready
+// we simulate server loading - on AdaptableReady event
 api.eventApi.on("AdaptableReady", () => {
   // we load the json orders
   import("./orders.json")
