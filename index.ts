@@ -2,9 +2,13 @@ import { AllEnterpriseModules } from "@ag-grid-enterprise/all-modules";
 
 import Adaptable from "@adaptabletools/adaptable/agGrid";
 import "@adaptabletools/adaptable/index.css";
+import "@adaptabletools/adaptable/themes/dark.css";
 
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
+import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham-dark.css";
+import "@ag-grid-community/all-modules/dist/styles/ag-theme-alpine.css";
+import "@ag-grid-community/all-modules/dist/styles/ag-theme-alpine-dark.css";
 
 import charts from "@adaptabletools/adaptable-plugin-charts";
 import finance from "@adaptabletools/adaptable-plugin-finance";
@@ -19,8 +23,8 @@ const columnDefs = [
   {
     field: "InvoicedCost",
     type: "abColDefNumber",
-    valueFormatter: "x.toLocaleString()"
-  }
+    valueFormatter: "x.toLocaleString()",
+  },
 ];
 
 const adaptableOptions: AdaptableOptions = {
@@ -30,8 +34,12 @@ const adaptableOptions: AdaptableOptions = {
 
   // call the plugins functions and pass them to the plugins array in the AdaptableOptions object
   plugins: [charts(), finance()],
+  userInterfaceOptions: {
+    showAdaptableToolPanel: true,
+  },
 
   vendorGrid: {
+    sideBar: true,
     modules: AllEnterpriseModules,
     enableRangeSelection: true,
     columnDefs,
@@ -41,23 +49,30 @@ const adaptableOptions: AdaptableOptions = {
       abColDefBoolean: {},
       abColDefDate: {},
       abColDefNumberArray: {},
-      abColDefObject: {}
+      abColDefObject: {},
     },
-    rowData: null
+    rowData: null,
   },
-  predefinedConfig: {}
+  predefinedConfig: {
+    Theme: {
+      Revision: 3,
+      CurrentTheme: "light",
+    },
+  },
 };
-const api = Adaptable.init(adaptableOptions);
-// we simulate server loading - on AdaptableReady event
-api.eventApi.on("AdaptableReady", () => {
-  // we load the json orders
-  import("./orders.json")
-    .then(data => data.default)
-    .then(data => {
-      // add an extra timeout
-      setTimeout(() => {
-        // and then set the correct row data
-        adaptableOptions.vendorGrid.api!.setRowData(data);
-      }, 500);
-    });
+Adaptable.init(adaptableOptions).then((api) => {
+  // we simulate server loading - on AdaptableReady event
+  api.eventApi.on("AdaptableReady", () => {
+    console.log("Adaptable Ready!");
+    // we load the json orders
+    import("./orders.json")
+      .then((data) => data.default)
+      .then((data) => {
+        // add an extra timeout
+        setTimeout(() => {
+          // and then set the correct row data
+          adaptableOptions.vendorGrid.api!.setRowData(data);
+        }, 500);
+      });
+  });
 });
