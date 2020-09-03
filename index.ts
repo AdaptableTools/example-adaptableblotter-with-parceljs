@@ -1,4 +1,4 @@
-import { AllEnterpriseModules } from "@ag-grid-enterprise/all-modules";
+import { AllEnterpriseModules, ColDef } from "@ag-grid-enterprise/all-modules";
 
 import Adaptable from "@adaptabletools/adaptable/agGrid";
 import "@adaptabletools/adaptable/index.css";
@@ -25,7 +25,11 @@ const columnDefs = [
     type: "abColDefNumber",
     valueFormatter: "x.toLocaleString()",
   },
-];
+].map((c: ColDef) => {
+  c.floatingFilter = true;
+  c.filter = true;
+  return c;
+});
 
 const adaptableOptions: AdaptableOptions = {
   primaryKey: "OrderId",
