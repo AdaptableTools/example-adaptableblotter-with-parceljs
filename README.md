@@ -47,3 +47,31 @@ This repo also shows how you can minify AdapTable - for this, run `npm run minif
 Then, in order to use the minified version, you can run `npm run serve-minified` - which simply runs a webserver in the current folder - now you can open [localhost:1234/with-minified](http://localhost:1234/with-minified.html)
 
 In order to modify the demo, you can edit the [with-minified.html](./with-minified.html) file, which uses the minified version of AdapTable.
+
+## Licences
+
+A licence for AdapTable provides access to all product features as well as quarterly updates and enhancements through the lifetime of the licence, comprehensive support, and access to all 3rd party libraries.
+
+Licences can be purchased individually, for a team (minimum 30 end-users), for an organisation or for integration into software for onward sale.
+
+We can make a trial licence available for a short period of time to allow you to try out AdapTable for yourself.
+
+**Note: The AdapTable licence does not include the underlying grid's licence, so if you plan to use AdapTable with a Grid that requires a commercial licence, you must pay for that separately**.
+
+Please contact [`sales@adaptabletools.com`](mailto:sales@adaptabletools.com) for more information.
+
+## Demo
+
+To see AdapTable in action visit our [Demo Site](https://demo.adaptabletools.com).  Here you can see a large number of AdapTable demos each showing a different feature, function or option in AdapTable (using dummy data sets).
+
+## Help
+
+Developers can learn how to access AdapTable programmatically at [AdapTable Documentation](https://docs.adaptabletools.com).
+
+## Other AdapTable Resources
+
+General information about Adaptable Tools is available at our [Website](http://www.adaptabletools.com)
+
+## Support
+
+For all support enquiries please email [`support@adaptabletools.com`](mailto:support@adaptabletools.com) or [raise a Support Ticket](https://adaptabletools.zendesk.com/hc/en-us/requests/new).
