@@ -22,6 +22,7 @@ const columnDefs = [
   { field: "Employee", type: "abColDefString" },
   {
     field: "InvoicedCost",
+    editable: true,
     type: "abColDefNumber",
     valueFormatter: "x.toLocaleString()",
   },
