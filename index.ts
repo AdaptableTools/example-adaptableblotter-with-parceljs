@@ -48,14 +48,6 @@ const adaptableOptions: AdaptableOptions = {
     modules: AllEnterpriseModules,
     enableRangeSelection: true,
     columnDefs,
-    columnTypes: {
-      abColDefNumber: {},
-      abColDefString: {},
-      abColDefBoolean: {},
-      abColDefDate: {},
-      abColDefNumberArray: {},
-      abColDefObject: {},
-    },
     rowData: null,
   },
   predefinedConfig: {
