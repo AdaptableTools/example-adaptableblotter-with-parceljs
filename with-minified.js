@@ -42,21 +42,23 @@ const adaptableOptions = {
   predefinedConfig: {}
 };
 
-const api = Adaptable.init(adaptableOptions);
-// we simulate server loading - on AdaptableReady event
-api.eventApi.on("AdaptableReady", () => {
-  // we load the json orders
-  // import("./orders.json")
-  new Promise(resolve => {
-    setTimeout(() => resolve({ default: window.orders }), 1000);
-  })
-    .then(data => data.default)
-    .then(data => {
-      console.log(data);
-      // add an extra timeout
-      setTimeout(() => {
-        // and then set the correct row data
-        adaptableOptions.vendorGrid.api.setRowData(data);
-      }, 500);
-    });
+Adaptable.init(adaptableOptions).then(api =>{
+  // we simulate server loading - on AdaptableReady event
+  api.eventApi.on("AdaptableReady", () => {
+    // we load the json orders
+    // import("./orders.json")
+    new Promise(resolve => {
+      setTimeout(() => resolve({ default: window.orders }), 1000);
+    })
+        .then(data => data.default)
+        .then(data => {
+          console.log(data);
+          // add an extra timeout
+          setTimeout(() => {
+            // and then set the correct row data
+            adaptableOptions.vendorGrid.api.setRowData(data);
+          }, 500);
+        });
+  });
 });
+
